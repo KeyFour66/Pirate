@@ -1,1 +1,63 @@
-style.css
+
+@import url("components/avatar.css");
+@import url("components/banner.css");
+@import url("components/button.css");
+
+@media all and (max-width: 400px) {
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: scroll;
+    min-width: 1139px;
+    display: block;
+    margin: 8px;
+}
+
+html {
+    color: -internal-root-color;
+}
+
+
+#btn {
+    font-size: 13px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: 16px;
+    margin: 0 15px;
+}
+
+#btn div {
+    float: right;
+    color: #000;
+}
+
+#logo {
+    margin-top: 170px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+form {
+    margin-top: 24px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.research {
+    width: 580px;
+    border: 2px solid rgb(240, 240, 240);
+    border-radius: 28px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border-color: rgba(223, 225, 229, 0);
+    text-decoration: none !important;
+}
