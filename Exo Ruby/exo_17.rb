@@ -6,8 +6,9 @@ age = 2020-(num)
 
 
 age.times do|count|
-  if num == count
-    puts " Il y a n ans, tu avais la moitié de l'âge que tu as aujourd'hui"
+  if num >= count
+    puts "En #{num = num + 1} tu avais #{count} ans"
   else
-  puts "En #{num = num + 1} tu avais #{count} ans"
+  puts " Il y a n ans, tu avais la moitié de l'âge que tu as aujourd'hui"
+ end
 end
