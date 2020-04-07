@@ -3,7 +3,7 @@ print '>'
 n = gets.chomp.to_i
 
 while n >= 1
-      puts "* " * n
+      puts " # " * n
       n = n - 1
     end
 #while n <= 25

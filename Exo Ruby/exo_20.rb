@@ -14,7 +14,7 @@ n = gets.chomp.to_i
 def pyramid(height)
   height.times {|n|
     print ' ' * (height)
-    puts '*' * ( n + 1)
+    puts '#' * ( n + 1)
   }
 end
 
