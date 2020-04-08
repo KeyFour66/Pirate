@@ -25,8 +25,8 @@ sorted_a = a.sort
 puts sorted_a
 
 #Quels sont les 50 handles les plus courts de ce array ?
-
-
+fiftyshort = a.min_by(&:length)
+puts fiftyshort
 #Quelle est la position dans l'array de la personne @epenser ?
 position = a.find_index("@epenser")
 puts position
