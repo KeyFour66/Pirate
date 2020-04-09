@@ -34,6 +34,7 @@ puts shortest_hash_key(my_hash)
 coin = my_hash.count {|k,v| k =~ /coin/}
 puts coin
 #Les devises, dont le cours est inférieur à 6000 (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice).
-
+less6000 = my_hash.select{|k,v| v < 6000}
+puts less6000
 
 #La devise la plus chère parmi celles dont le cours est inférieur à 6000.
