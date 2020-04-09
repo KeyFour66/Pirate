@@ -9,10 +9,11 @@ value = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26", "$0.1
 my_hash = keys.zip(value).to_h
 
 puts( my_hash.map{ |k,v| "#{k} => #{v}" }.sort )
+my_hash = my_hash.map{ |key,value| [key, value[1..-1].to_f] }.to_h
 puts my_hash["Bitcoin"]
 
-#new_hash = my_hash.delete!('$')
-
+#new_hash = my_hash.each {|k,v| v.gsub(/[$]/, '')}
+#puts new_hash["Bitcoin"]
 #puts new_hash["Bitcoin"]
 
 #La ou les crypto qui ont la plus grosse valeur.
@@ -34,7 +35,11 @@ puts shortest_hash_key(my_hash)
 coin = my_hash.count {|k,v| k =~ /coin/}
 puts coin
 #Les devises, dont le cours est inférieur à 6000 (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice).
-less6000 = my_hash.select{|k,v| v < 6000}
+
+less6000 = my_hash.select{|k,v| v<6000}
 puts less6000
 
 #La devise la plus chère parmi celles dont le cours est inférieur à 6000.
+topless6000 = less6000.max_by{|k,v| v}
+
+puts topless6000
