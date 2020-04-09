@@ -22,11 +22,11 @@ under = a.count {|e| e =~ /_/}
 puts under
 #Trie la liste de handle par ordre alphabétique.
 sorted_a = a.sort
-puts sorted_a
+#puts sorted_a
 
 #Quels sont les 50 handles les plus courts de ce array ?
-fiftyshort = a.min_by(&:length)
-puts fiftyshort
+fiftyshort = a.sort_by {|x| x.length}
+puts fiftyshort [0..49]
 #Quelle est la position dans l'array de la personne @epenser ?
 position = a.find_index("@epenser")
 puts position
