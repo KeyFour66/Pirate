@@ -9,10 +9,17 @@ value = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26", "$0.1
 my_hash = keys.zip(value).to_h
 
 puts my_hash["Bitcoin"]
-#La ou les crypto qui ont la plus grosse valeur.
-maxval = my_hash.value.max
 
-puts maxval
+#new_hash = my_hash.delete!('$')
+
+#puts new_hash["Bitcoin"]
+
+#La ou les crypto qui ont la plus grosse valeur.
+def largest_hash_key(my_hash)
+  my_hash.max_by{|k,v| v}
+end
+
+largest_hash_key(my_hash)
 
 
 #La ou les crypto qui ont la plus petite valeur.

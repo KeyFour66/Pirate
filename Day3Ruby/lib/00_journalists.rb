@@ -8,25 +8,31 @@ puts " il y a #{a.length} journalistes "
 #Combien d'handle contiennent un numéro ?
 num = a.count {|e| e =~ /[0-9]/}
 puts num
+
 #Combien d'handle contiennent les 4 lettres du prénom "Aude" à la suite (sans prendre en compte les majuscules) ?
 aude = a.count {|e| e =~ /aude/}
 puts aude
+
 #Combien commencent par une majuscule (première lettre juste après le @) ?
 maj = a.count {|e| e =~ /^@[A-Z]/}
 puts maj
+
 #Combien contiennent au moins une majuscule ?
 majmin = a.count {|e| e =~ /[A-Z]/}
 puts majmin
+
 #Combien y a-t-il de underscore _ dans tous les pseudos confondus ?
 under = a.count {|e| e =~ /_/}
 puts under
+
 #Trie la liste de handle par ordre alphabétique.
 sorted_a = a.sort
-#puts sorted_a
+puts sorted_a
 
 #Quels sont les 50 handles les plus courts de ce array ?
 fiftyshort = a.sort_by {|x| x.length}
 puts fiftyshort [0..49]
+
 #Quelle est la position dans l'array de la personne @epenser ?
 position = a.find_index("@epenser")
 puts position
