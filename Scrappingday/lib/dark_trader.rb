@@ -11,3 +11,5 @@ def dark_trader
   return [] if names.length != prices.length
   names.each_with_index.map{|n, i| {n => prices[i]}}
 end
+
+puts dark_trader

@@ -24,3 +24,5 @@ def cher_depute
     {:first_name => spl[1], :lats_name => spl[2..-1].join(" "), :email => mail}
   end
 end
+
+puts cher_depute
