@@ -1,5 +1,4 @@
 
-require "pry"
 
 class Player
 
@@ -47,12 +46,12 @@ end
 class HumanPlayer < Player
 
   attr_accessor :weapon_level
-  @@_player = []
+  @@all_players = []
   def initialize(name_to_save)
     @name = name_to_save
     @weapon_level = 1
     @life_points = 100
-    @@allplayer << self
+    @@all_players << self
   end
 
 #show_state présente le nom du joueur , ses points de vie et le niveau de son arme
@@ -65,7 +64,7 @@ class HumanPlayer < Player
   end
 
   #Recherche nouvelle arme pour augmenter attaque
-  def search_weapon(weapon)
+  def search_weapon
     boost_weapon = rand(1..6)
    return "Tu as désormais une arme de niveau #{boost_weapon}"
    if boost_weapon > @weapon_level
@@ -77,7 +76,7 @@ class HumanPlayer < Player
   end
 
 #recherche un pack santé pour rebooster les life points à max 100
-   def search_health_pack(health_pack)
+   def search_health_pack
     health_pack = rand(1..6)
     if health_pack == 1
       puts "Tu n'as rien trouvé .."
@@ -92,9 +91,10 @@ class HumanPlayer < Player
         if @life_points > 20
           @life_points = 100
         else
-          @life_points = @life_points + 50
+          @life_points = @life_points + 80
         end
       puts "Ouf , tu as trouvé un pack de +80 points de vie!"
     end
   end
+end
 
