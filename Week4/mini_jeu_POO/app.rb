@@ -6,7 +6,7 @@ require_relative 'lib/game'
 require_relative 'lib/player'
 
 #Je créé mes 2 joueurs
-player1 = Player.new("Josy")
+player1 = Player.new("Josiane")
 player2 = Player.new("José")
 
 #texte de bienvenue
@@ -38,6 +38,4 @@ puts player2.show_state #On visualise les points du player2 après l'attaque
 
 end
 
-#permet de tester avec pry
-# binding.pry
-# puts "end of file"
+binding.pry

@@ -4,11 +4,13 @@ require "pry"
 class Player
 
   attr_accessor :name, :life_points
+  @@all_players = []
 
   #on initialise les variables pour les utiliser dans les méthodes ci dessous
-  def initialize(name)
-    @name = name
+  def initialize(name_to_save)
+    @name = name_to_save
     @life_points = 10
+    @@all_players << self
   end
 
   # Permet de visualiser le nom de points de chaque player
@@ -42,53 +44,57 @@ class Player
 
 end
 
-# class HumanPlayer < Player
+class HumanPlayer < Player
 
-#   attr_accessor :weapon_level
+  attr_accessor :weapon_level
+  @@_player = []
+  def initialize(name_to_save)
+    @name = name_to_save
+    @weapon_level = 1
+    @life_points = 100
+    @@allplayer << self
+  end
 
-#   def initialize(name, life_points, weapon_level)
-#     @weapon_level = 1
-#     @life_points = 100
-#     super(name)
-#   end
+#show_state présente le nom du joueur , ses points de vie et le niveau de son arme
+  def show_state
+    puts "#{@name} a #{life_points} points de vie et une arme de niveau #{weapon_level}"
+  end
 
-#   def show_state
-#     puts "#{@name} a #{life_points} points de vie et une arme de niveau #{weapon_level}"
-#   end
+  def compute_damage
+   return rand(1..6) * @weapon_level
+  end
 
-# # binding.pry
-# # puts "end of file"
+  #Recherche nouvelle arme pour augmenter attaque
+  def search_weapon(weapon)
+    boost_weapon = rand(1..6)
+   return "Tu as désormais une arme de niveau #{boost_weapon}"
+   if boost_weapon > @weapon_level
+    @weapon_level = boost_weapon
+    puts "Elle est meilleure que mon arme actuelle, Prends la !"
+  else
+    puts "Elle n'est pas mieux que mon arme actuelle , fous moi ca en l'air malheureux"
+  end
+  end
 
-#   # def compute_damage
-#   #   return rand(1..6) * @weapon_level
-#   # end
+#recherche un pack santé pour rebooster les life points à max 100
+   def search_health_pack(health_pack)
+    health_pack = rand(1..6)
+    if health_pack == 1
+      puts "Tu n'as rien trouvé .."
+    elsif (health_pack > 2 && health_pack < 6)
+        if @life_points > 50
+          @life_points = 100
+        else
+          @life_points = @life_points + 50
+        end
+      puts "Bien , tu as trouvé un pack de +50 points de vie!"
+    else
+        if @life_points > 20
+          @life_points = 100
+        else
+          @life_points = @life_points + 50
+        end
+      puts "Ouf , tu as trouvé un pack de +80 points de vie!"
+    end
+  end
 
-#   # def search_weapon(weapon)
-#   #   weapon = rand(1..6)
-#   #   return "Tu as trouvé une arme de niveau #{weapon}"
-#   #   if weapon > @weapon_level
-#   #     @weapon_level = weapon
-#   #     puts "Elle est meilleure que mon arme actuelle, je la garde !"
-#   #   else
-#   #     puts "Elle n'est pas mieux que mon arme actuelle"
-#   # end
-
-#   # def search_health_pack(health_pack)
-#   #   health_pack = rand(1..6)
-#   #   if health_pack == 1
-#   #     puts "Tu n'as rien trouvé .."
-#   #   elsif (health_pack > 2 && health_pack < 6)
-#   #       if @life_points > 50
-#   #         @life_points = 100
-#   #       else
-#   #         @life_points = @life_points + 50
-#   #       end
-#   #     puts "Bravo, tu as trouvé un pack de +50 points de vie!"
-#   #   else
-#   #       if @life_points > 20
-#   #         @life_points = 100
-#   #       else
-#   #         @life_points = @life_points + 50
-#   #       end
-#   #     puts "Bravo, tu as trouvé un pack de +80 points de vie!"
-#   #   end
