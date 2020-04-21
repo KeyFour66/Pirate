@@ -20,7 +20,7 @@ print "Quel est ton nom ?"
 print "> "
 name_to_save = gets.chomp
 player1 = HumanPlayer.new("#{name_to_save}")
-puts "Bienvenue dans l'arène #{name_to_save} !"
+puts "Bienvenue dans l'arène , le ring , la cage ! #{name_to_save} !"
 
 # here your ennemis !
 villains = []
@@ -71,7 +71,7 @@ sleep(3)
 puts " "
 # les ennemis attaquent à leur tour
   if villain1.life_points > 0 || villain2.life_points > 0
-    puts "Attention on t'attaque !"
+    puts "Attention #{@name_to_save} on t'attaque !"
   end
 sleep(1)
   villains.each do |a|

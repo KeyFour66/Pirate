@@ -33,7 +33,7 @@ class Player
     damage_received = compute_damage
     # on inflige au player concerné les dommages
     player.gets_damage(damage_received)
-    puts "il lui inflige #{damage_received} points de dommages"
+    puts "#{@name} inflige #{damage_received} points de dommages"
 
   end
   # méthode qui défini aléatoirement un chiffre entre 1 et 6
